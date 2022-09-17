@@ -1,0 +1,380 @@
+[
+	{
+		"id": 10,
+		"name": "Pfirsich Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 11,
+		"name": "Zitronen Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 12,
+		"name": "Maracuja Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 13,
+		"name": "Erdbeer Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 14,
+		"name": "Mango Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 15,
+		"name": "Ananas Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 16,
+		"name": "Kiwi Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 17,
+		"name": "Apfel Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 18,
+		"name": "Litschi Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 19,
+		"name": "Heidelbeer Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 20,
+		"name": "Honigmelone Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 21,
+		"name": "Himbeer Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 22,
+		"name": "Kirsche Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 23,
+		"name": "Wassermelone Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 24,
+		"name": "Kirschblüten Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 25,
+		"name": "Kumquat Zitrone",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 26,
+		"name": "Grapefruit Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 27,
+		"name": "Granatapfel Eistee",
+		"type": "Eistee",
+		"priceM": "4,00",
+		"priceL": "4,50"
+	},
+	{
+		"id": 28,
+		"name": "Oolong Tee",
+		"type": "Tee",
+		"priceM": "3,50",
+		"priceL": "4,00"
+	},
+	{
+		"id": 29,
+		"name": "Schwarzer Tee",
+		"type": "Tee",
+		"priceM": "3,50",
+		"priceL": "4,00"
+	},
+	{
+		"id": 30,
+		"name": "Jasmin grüner Tee",
+		"type": "Tee",
+		"priceM": "3,50",
+		"priceL": "4,00"
+	},
+	{
+		"id": 31,
+		"name": "Schwarzer Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 32,
+		"name": "Oolong Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 33,
+		"name": "Jasmin Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 34,
+		"name": "Taro Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 35,
+		"name": "Matcha/Kokos Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 36,
+		"name": "Mango Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 37,
+		"name": "Schoko Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 38,
+		"name": "Erdbeer Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 39,
+		"name": "Vanille Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 40,
+		"name": "Maracuja Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 41,
+		"name": "Heidelbeer Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 42,
+		"name": "Wassermelone Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 43,
+		"name": "Honigmelone Milchtee",
+		"type": "Milchtee",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 44,
+		"name": "Pfirsich Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 45,
+		"name": "Maracuja Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 46,
+		"name": "Mango Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 47,
+		"name": "Kiwi Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 48,
+		"name": "Apfel Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 49,
+		"name": "Erdbeer Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 50,
+		"name": "Himbeer Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 51,
+		"name": "Honigmelone Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 52,
+		"name": "Wassermelone Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 53,
+		"name": "Heidelbeer Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 54,
+		"name": "Kirsch Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 55,
+		"name": "Curacao blue Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 56,
+		"name": "Violette Veilchen Joghurt",
+		"type": "Joghurt",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 57,
+		"name": "Brauner Zucker Perlenmilch",
+		"type": "Brauner Zucker",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 58,
+		"name": "Matcha Brauner Zucker Perlenmilch",
+		"type": "Brauner Zucker",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 59,
+		"name": "Taro Brauner Zucker Perlenmilch",
+		"type": "Brauner Zucker",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 60,
+		"name": "Cafe Boba",
+		"type": "Cafe",
+		"priceM": "4,50",
+		"priceL": "5,00"
+	},
+	{
+		"id": 61,
+		"name": "Erdbeer Smoothie",
+		"type": "Smoothie",
+		"priceM": "5,00",
+		"priceL": "5,00"
+	},
+	{
+		"id": 62,
+		"name": "Wassermelone Smoothie",
+		"type": "Smoothie",
+		"priceM": "5,00",
+		"priceL": "5,00"
+	},
+	{
+		"id": 63,
+		"name": "Mango Smoothie",
+		"type": "Smoothie",
+		"priceM": "5,00",
+		"priceL": "5,00"
+	}
+]
