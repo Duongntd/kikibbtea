@@ -1,13 +1,12 @@
 import React from "react";
 import { db } from "../firebase/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { loginState } from "../components/Header";
 import { useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const usersCollectionRef = collection(db, "users");
   const [data, setData] = React.useState([]);
   const [loginCre, setLoginCre] = React.useState({
     username: "",
@@ -16,26 +15,28 @@ export default function Login() {
   const [loginMessage, setLoginMessage] = React.useState();
   const setLoggedIn = useSetRecoilState(loginState);
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const data = await getDocs(usersCollectionRef);
-        setData(
-          data.docs.map((doc) => ({
-            ...doc.data(),
-            id: doc.id,
-          }))
-        );
-      } catch (err) {
-        console.log("Error getting message: ", err);
+  const docSnap = async (ref) => {
+    const res = await getDoc(ref);
+    const doc = res?.data();
+    if (doc) {
+      let userList = [];
+      for (let user in doc) {
+        userList.push({
+          ...doc[user],
+          id: user,
+        });
       }
-    };
-    getUsers();
+      setData(userList);
+    }
+  };
+  React.useEffect(() => {
+    const docRef = doc(db, "greifswald", "users");
+    docSnap(docRef);
     // eslint-disable-next-line
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(data);
 
     const found = data.find(
       (user) =>

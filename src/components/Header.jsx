@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createStyles, Header, Container, Group, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link, useLocation } from "react-router-dom";
@@ -58,14 +58,17 @@ const useStyles = createStyles((theme) => ({
 }));
 export const loginState = atom({
   key: "loginState",
-  default: false,
+  default: localStorage.getItem("loggedIn") ? true : false,
 });
 
 export function HeaderSimple({ links }) {
   const location = useLocation();
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(location.pathname);
-  console.log(location.pathname);
+  useEffect(() => {
+    console.log("active tab setted");
+    setActive(location.pathname);
+  }, [location.pathname]);
   const { classes, cx } = useStyles();
   const isLoggedIn = useRecoilValue(loginState);
   const items = links.map((link) => {

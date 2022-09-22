@@ -9,10 +9,13 @@ export default function Logout() {
   localStorage.setItem("user", "");
   localStorage.setItem("userIdList", "");
   localStorage.setItem("loggedIn", "");
-  setTimeout(() => {
-    navigate("/");
-    setIsLoggedIn(false);
-  }, 1500);
+  React.useEffect(() => {
+    console.log("logout effect ran");
+    setTimeout(() => {
+      navigate("/");
+      setIsLoggedIn(false);
+    }, 1500);
+  });
   return (
     <main>
       <h3>Logout successful! Redirecting...</h3>

@@ -13,20 +13,22 @@ export default function Profile() {
 
   const userId = localStorage.getItem("user");
   const docSnap = async (ref) => {
-    const doc = await getDoc(ref);
-    setData(doc.data());
+    const res = await getDoc(ref);
+    const doc = res.data();
+    setData(doc[userId]);
   };
   React.useEffect(() => {
     if (userId) {
-      if (userId === "dUDc4IorGxtsR2HDHoy4") {
+      if (userId === "0d7347b6-6e6d-4f3b-88d7-343c5593096e") {
         setAdminPriv(true);
-        const docRef = doc(db, "users", userId);
+        const docRef = doc(db, "greifswald", "users");
         docSnap(docRef);
       } else {
-        const docRef = doc(db, "users", userId);
+        const docRef = doc(db, "greifswald", "users");
         docSnap(docRef);
       }
     }
+    // eslint-disable-next-line
   }, []);
 
   const searchUser = () => {

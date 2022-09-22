@@ -8,8 +8,9 @@ export default function User() {
   const [adminPriv, setAdminPriv] = React.useState(false);
   const [noUserFound, setNoUserFound] = React.useState(false);
   const docSnap = async (ref) => {
-    const doc = await getDoc(ref);
-    setData(doc.data());
+    const res = await getDoc(ref);
+    const doc = res.data();
+    setData(doc[userId]);
   };
   const getIdFromParams = () => {
     let params = new URL(document.location).searchParams;
@@ -20,17 +21,18 @@ export default function User() {
   React.useEffect(() => {
     console.log("Effect ran");
     let thisUser = localStorage.getItem("user");
-    if (thisUser === "dUDc4IorGxtsR2HDHoy4") {
+    if (thisUser === "0d7347b6-6e6d-4f3b-88d7-343c5593096e") {
       setAdminPriv(true);
       getIdFromParams();
       if (userId) {
-        const docRef = doc(db, "users", userId);
+        const docRef = doc(db, "greifswald", "users");
         docSnap(docRef);
         setNoUserFound(false);
       } else setNoUserFound(true);
     } else {
       setAdminPriv(false);
     }
+    // eslint-disable-next-line
   }, [userId]);
 
   return (
