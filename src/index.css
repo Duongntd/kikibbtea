@@ -1,13 +1,61 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.minus-icon {
+  margin-right: 5px;
+}
+.plus-icon {
+  margin-left: 5px;
+}
+/* Profile page */
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-card-container {
+  padding-top: 20px;
+  position: relative;
+  background-color: aqua;
+  border-radius: 15px;
+  box-shadow: 4px 5px 10px #bebebe;
+  width: 350px;
+}
+.profile-pic {
+  position: absolute;
+  bottom: 100%;
+  right: 100%;
+  translate: 125% 50%;
+  width: 75px;
+  height: 75px;
+  background-color: black;
+  border-radius: 50%;
+}
+.profile-col-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.profile-col-2 {
+}
+.profile-username {
+  font-size: large;
+  font-weight: 700;
+}
+.profile-bio-container {
+  width: 150px;
 }
