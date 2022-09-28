@@ -1,16 +1,18 @@
 import React from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
 export default function User() {
   const [data, setData] = React.useState({});
+  const [userList, setUserList] = React.useState({});
   const [userId, setUserId] = React.useState("");
   const [adminPriv, setAdminPriv] = React.useState(false);
   const [noUserFound, setNoUserFound] = React.useState(false);
   const docSnap = async (ref) => {
     const res = await getDoc(ref);
-    const doc = res.data();
-    setData(doc[userId]);
+    const document = res.data();
+    setUserList(document);
+    setData(document[userId]);
   };
   const getIdFromParams = () => {
     let params = new URL(document.location).searchParams;
@@ -34,7 +36,31 @@ export default function User() {
     }
     // eslint-disable-next-line
   }, [userId]);
-
+  const pointDecrement = () => {
+    setData({
+      ...data,
+      point: data.point - 1,
+    });
+  };
+  const pointIncrement = () => {
+    setData({
+      ...data,
+      point: data.point + 1,
+    });
+  };
+  const saveChange = async () => {
+    try {
+      await setDoc(doc(db, "greifswald", "users"), {
+        ...userList,
+        [userId]: {
+          ...data,
+        },
+      });
+      console.log("saved");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <main>
       {!noUserFound && adminPriv ? (
@@ -43,7 +69,15 @@ export default function User() {
           <p>Name: {data.username}</p>
           {data.preRegister && <b>Pre-registered</b>}
           <p>Password: {data.password}</p>
-          <p>Punkte: {data.point}</p>
+          <div className="user-point">
+            <span className="minus-icon" onClick={() => pointDecrement()}>
+              -
+            </span>
+            <span>Punkte: {data.point}</span>
+            <span className="plus-icon" onClick={() => pointIncrement()}>
+              +
+            </span>
+          </div>
           <p>
             Favorite Drinks:{" "}
             {data.favDrinks?.map((drink) => (
@@ -56,6 +90,7 @@ export default function User() {
               <b>{order}</b>
             ))}
           </p>
+          <button onClick={() => saveChange()}>Save</button>
         </div>
       ) : noUserFound && adminPriv ? (
         <p>No User Found!</p>

@@ -1,7 +1,9 @@
 import React from "react";
 import { db } from "../firebase/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 export default function Signup() {
+  const [data, setData] = React.useState({});
   const [newUser, setNewUser] = React.useState({
     username: "",
     password: "",
@@ -11,11 +13,32 @@ export default function Signup() {
     pastOrder: [],
   });
   const [submitMessage, setSubmitMessage] = React.useState(false);
-
-  const usersCollectionRef = collection(db, "users");
+  const docSnap = async (ref) => {
+    const res = await getDoc(ref);
+    const document = res?.data();
+    setData(document);
+  };
+  React.useEffect(() => {
+    const docRef = doc(db, "greifswald", "users");
+    docSnap(docRef);
+    console.log("signup fetch");
+    //eslint-disable-next-line
+  }, []);
   const createNewUser = async () => {
+    let newId = uuidv4();
     try {
-      await addDoc(usersCollectionRef, newUser);
+      await setDoc(doc(db, "greifswald", "users"), {
+        ...data,
+        [newId]: {
+          ...newUser,
+        },
+      });
+      setData({
+        ...data,
+        [newId]: {
+          ...newUser,
+        },
+      });
     } catch (err) {
       console.log(err);
     }

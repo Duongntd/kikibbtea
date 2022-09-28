@@ -5,6 +5,7 @@ import { db } from "../firebase/firebase";
 
 export default function Profile() {
   const [data, setData] = React.useState({});
+  const [userList, setUserList] = React.useState({});
   const [adminPriv, setAdminPriv] = React.useState(false);
   const [searchName, setSearchName] = React.useState("");
   const [searchResult, setSearchResult] = React.useState(true);
@@ -14,8 +15,16 @@ export default function Profile() {
   const userId = localStorage.getItem("user");
   const docSnap = async (ref) => {
     const res = await getDoc(ref);
-    const doc = res.data();
+    const doc = res?.data();
     setData(doc[userId]);
+    let list = [];
+    for (let user in doc) {
+      list.push({
+        ...doc[user],
+        id: user,
+      });
+    }
+    setUserList(list);
   };
   React.useEffect(() => {
     if (userId) {
@@ -32,40 +41,41 @@ export default function Profile() {
   }, []);
 
   const searchUser = () => {
-    let userIdList = localStorage.getItem("userIdList");
-    let userId;
-    if (userIdList) {
-      userId = JSON.parse(userIdList).find(
-        (user) => user.username === searchName
-      )?.id;
-    }
-    if (userId) {
-      navigate(`/user?id=${userId}`);
+    const found = userList?.find((user) => user.username === searchName);
+
+    if (found && found.id) {
+      navigate(`/user?id=${found.id}`);
     } else setSearchResult(false);
   };
   return (
-    <main>
+    <div className="profile-page-container">
       <h2>Profile</h2>
-      <p>Role: {adminPriv ? <span>Admin</span> : <span>Kunden</span>}</p>
-
       {!adminPriv ? (
-        <div>
-          <p>Name: {data.username}</p>
-          {data.preRegister && <b>Pre-registered</b>}
-          <p>Password: {data.password}</p>
-          <p>Punkte: {data.point}</p>
-          <p>
-            Favorite Drinks:{" "}
-            {data.favDrinks?.map((drink) => (
-              <b>{drink}</b>
-            ))}
-          </p>
-          <p>
-            Past Orders:{" "}
-            {data.pastOrders?.map((order) => (
-              <b>{order}</b>
-            ))}
-          </p>
+        <div className="profile-card-container">
+          <div className="profile-pic"></div>
+          <div className="flex-around">
+            <div className="profile-col-1">
+              <p className="profile-username">{data?.displayName}</p>
+              <div className="profile-bio-container">
+                <p>{data?.bio}</p>
+              </div>
+              <p>
+                Favorite Drinks:{" "}
+                {data?.favDrinks?.map((drink) => (
+                  <b>{drink}</b>
+                ))}
+              </p>
+              <p>
+                Past Orders:{" "}
+                {data?.pastOrders?.map((order) => (
+                  <b>{order}</b>
+                ))}
+              </p>
+            </div>
+            <div className="profile-col-2">
+              <p>Punkte: {data?.point}</p>
+            </div>
+          </div>
         </div>
       ) : (
         <div>
@@ -84,6 +94,6 @@ export default function Profile() {
           {!searchResult && <p>No user found!</p>}
         </div>
       )}
-    </main>
+    </div>
   );
 }
