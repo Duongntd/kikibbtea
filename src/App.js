@@ -1,23 +1,19 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
-import { HeaderSimple } from "./components/Header";
+import { HeaderMegaMenu } from "./components/Header";
 import { RecoilRoot } from "recoil";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+library.add(fas, faEnvelope);
 
 function App() {
   return (
     <div className="App">
       <RecoilRoot>
         <MantineProvider withGlobalStyles withNormalizeCSS>
-          <HeaderSimple
-            links={[
-              { link: "/", label: "Home" },
-              { link: "/login", label: "Login" },
-              { link: "/profile", label: "Profile" },
-              { link: "/order", label: "Order" },
-              { link: "/logout", label: "Logout" },
-            ]}
-          ></HeaderSimple>
+          <HeaderMegaMenu />
           <Outlet />
         </MantineProvider>{" "}
       </RecoilRoot>
