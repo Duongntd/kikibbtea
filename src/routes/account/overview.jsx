@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase";
-import { LeadGrid } from "../components/Grid";
+import { db } from "../../firebase/firebase";
+import { LeadGrid } from "../../components/Grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import bubbleTeaIcon from "../assets/icons/bubbleTeaIcon.svg";
+import bubbleTeaIcon from "../../assets/icons/bubbleTeaIcon.svg";
 
-export default function Profile() {
+export default function Overview() {
   const [data, setData] = React.useState({});
   const [userList, setUserList] = React.useState({});
+  const [ogList, setOgList] = React.useState({});
   const [adminPriv, setAdminPriv] = React.useState(false);
   const [searchName, setSearchName] = React.useState("");
   const [searchResult, setSearchResult] = React.useState(true);
@@ -22,6 +23,7 @@ export default function Profile() {
   const docSnap = async (ref) => {
     const res = await getDoc(ref);
     const doc = res?.data();
+    setOgList(doc);
     setData(doc[userId]);
     let list = [];
     for (let user in doc) {
@@ -45,7 +47,6 @@ export default function Profile() {
     }
     // eslint-disable-next-line
   }, []);
-
   const searchUser = () => {
     const found = userList?.find((user) => user.username === searchName);
 
@@ -56,7 +57,7 @@ export default function Profile() {
   const save = async () => {
     try {
       await setDoc(doc(db, "greifswald", "users"), {
-        ...userList,
+        ...ogList,
         [userId]: {
           ...data,
         },
@@ -80,7 +81,9 @@ export default function Profile() {
             <div className="profile-card-container">
               <div className="profile-card-col-1">
                 {!edittingBio ? (
-                  <p className="profile-display-name">{data?.displayName}</p>
+                  <div className="profile-display-name">
+                    {data?.firstName} {data?.lastName}
+                  </div>
                 ) : (
                   <input
                     type="text"

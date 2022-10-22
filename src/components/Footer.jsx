@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor:

@@ -6,6 +6,8 @@ export default function Signup() {
   const [data, setData] = React.useState({});
   const [newUser, setNewUser] = React.useState({
     username: "",
+    firstName: "",
+    lastName: "",
     password: "",
     point: 0,
     preRegister: true,
@@ -64,7 +66,31 @@ export default function Signup() {
             }
           />
         </label>
-        <label htmlFor="username">
+        <label htmlFor="fname">
+          First name:
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            value={newUser.firstName}
+            onChange={(e) =>
+              setNewUser({ ...newUser, firstName: e.target.value })
+            }
+          />
+        </label>
+        <label htmlFor="lname">
+          Last name:
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            value={newUser.lastName}
+            onChange={(e) =>
+              setNewUser({ ...newUser, lastName: e.target.value })
+            }
+          />
+        </label>
+        <label htmlFor="password">
           Password:
           <input
             type="text"

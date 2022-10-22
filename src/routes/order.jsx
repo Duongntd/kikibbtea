@@ -1,6 +1,7 @@
 import React from "react";
 import menu from "../items/menu.json";
 import toppingList from "../items/topping.json";
+import bubbleTeaIcon from "../assets/icons/bubbleTeaIcon.svg";
 export default function Order() {
   const [order, setOrder] = React.useState({
     id: 10,
@@ -188,8 +189,10 @@ export default function Order() {
       >
         <span>{drink.id}</span>
         <span>{drink.name}</span>
-        <span>{drink.priceM}</span>
-        <span>{drink.priceL}</span>
+        <div className="items-price">
+          <span>{drink.priceM}</span>
+          <span>{drink.priceL}</span>
+        </div>
       </div>
     );
   });
@@ -204,9 +207,11 @@ export default function Order() {
     (drink) => drink.props.className === "Joghurt"
   );
   const listBraunerZucker = menuMap.filter(
-    (drink) => drink.props.className === "Brauner Zucker"
+    (drink) =>
+      drink.props.className === "Brauner Zucker" ||
+      drink.props.className === "Cafe"
   );
-  const listCafe = menuMap.filter((drink) => drink.props.className === "Cafe");
+  // const listCafe = menuMap.filter((drink) => drink.props.className === "Cafe");
   const listSmoothie = menuMap.filter(
     (drink) => drink.props.className === "Smoothie"
   );
@@ -249,36 +254,58 @@ export default function Order() {
   return (
     <main>
       <h2>Order</h2>
-      <section className="menu">
-        <div className="tab">
-          <h3>Fruchtiger Eistee</h3>
-          {listEistee}
+      <div className="grid-container">
+        <div className="grid-template">
+          <div className="grid-col-1">
+            <div className="menu-header">
+              <span className="menu-title">Eistee</span>
+              <div className="flex mr-4 gap-4">
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={25}></img>
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={35}></img>
+              </div>
+            </div>
+            <div className="items-container">{listEistee}</div>
+          </div>
+          <div className="grid-col-2-1">
+            <div className="menu-header">
+              <span className="menu-title">Tee</span>
+              <div className="flex mr-4 gap-4">
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={25}></img>
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={35}></img>
+              </div>
+            </div>
+            <div className="items-container">{listTee}</div>
+          </div>
+          <div className="grid-col-2-2">
+            <div className="menu-header">
+              <span className="menu-title">Milchtee</span>
+            </div>
+            <div className="items-container">{listMilchtee}</div>
+          </div>
+          <div className="grid-col-3-1">
+            <div className="menu-header">
+              <span className="menu-title">Joghurt</span>
+              <div className="flex mr-4 gap-4">
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={25}></img>
+                <img src={bubbleTeaIcon} alt="bubble tea icon" width={35}></img>
+              </div>
+            </div>
+            <div className="items-container">{listJoghurt}</div>
+          </div>
+          <div className="grid-col-3-2">
+            <div className="menu-header">
+              <span className="menu-title">Brauner Zucker</span>
+            </div>
+            <div className="items-container">{listBraunerZucker}</div>
+          </div>
+          <div className="grid-col-3-3">
+            <div className="menu-header">
+              <span className="menu-title">Smoothie</span>
+            </div>
+            <div className="items-container">{listSmoothie}</div>
+          </div>
         </div>
-        <div className="tab">
-          <h3>Tee</h3>
-          {listTee}
-        </div>
-        <div className="tab">
-          <h3>Milchtee</h3>
-          {listMilchtee}
-        </div>
-        <div className="tab">
-          <h3>Joghurt</h3>
-          {listJoghurt}
-        </div>
-        <div className="tab">
-          <h3>Braun Zucker</h3>
-          {listBraunerZucker}
-        </div>
-        <div className="tab">
-          <h3>Cafe</h3>
-          {listCafe}
-        </div>
-        <div className="tab">
-          <h3>Smoothie</h3>
-          {listSmoothie}
-        </div>
-      </section>
+      </div>
       <section className="order-step">
         <div className="steps">
           <h2>Step 1: Choose your bubble tea</h2>
